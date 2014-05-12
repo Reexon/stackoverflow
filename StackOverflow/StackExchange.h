@@ -15,13 +15,21 @@
  */
 @property (nonatomic,strong) NSMutableArray *questionList;
 
--(void)loadAllQuestions;
+- (void) loadAllQuestions;
 
--(void)loadAllAnswers;
+- (void) loadAllAnswers;
 
--(void)loadUnansweredQuestion;
+- (void) loadUnansweredQuestion;
 
--(void)showAllQuestions;
+- (void) showAllQuestions;
 
--(void)loadQuestionBySearchString:(NSString *)search;
+- (void) loadQuestionBySearchString: (NSString *)search;
+
+- (void) addQuestionToFavorite: (NSString *)questionID;
+
+- (void) removeQuestionFromFavorite: (NSString *)questionID;
+
+- (void) upVoteAnswer: (int)answerID;
+
+- (void) downVoteAnswer: (int)answerID;
 @end
