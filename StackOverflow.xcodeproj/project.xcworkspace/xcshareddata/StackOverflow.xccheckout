@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EACDA656-77F8-456D-9653-22A65C4DC3C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>StackOverflow</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>130717CC-1173-4FB6-8703-C8CB45A6A99B</key>
+		<string>https://github.com/Reexon/stackoverflow.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>StackOverflow.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>130717CC-1173-4FB6-8703-C8CB45A6A99B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Reexon/stackoverflow.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>130717CC-1173-4FB6-8703-C8CB45A6A99B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>130717CC-1173-4FB6-8703-C8CB45A6A99B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>stackoverflow</string>
+		</dict>
+	</array>
+</dict>
+</plist>
