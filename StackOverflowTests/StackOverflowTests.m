@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SO_Request.h"
+#import "Answer.h"
 
 @interface StackOverflowTests : XCTestCase
 
@@ -28,7 +30,18 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+   // XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testNumber
+{
+    int countNumber = 4;
+    int result = [Answer countNumeber:4];
+    NSAssert(result == 10, @"Il valore non è corretto 1");
+    
+    countNumber = 5;
+    result = [Answer countNumeber:5];
+    NSAssert(result == 10, @"Il valore non è corretto 2");
 }
 
 @end

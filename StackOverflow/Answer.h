@@ -18,4 +18,8 @@
 
 -(id)initWithJSONDictionary:(NSDictionary *)JSONDictionary;
 -(void)showAnswer;
+
+
++ (int)countNumeber:(int) number;
+
 @end

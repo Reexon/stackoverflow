@@ -26,4 +26,10 @@
 -(void)showAnswer{
     NSLog(@"Risposta: %@",body);
 }
+
++ (int)countNumeber:(int) number {
+    number += 5;
+    return number;
+}
+
 @end
