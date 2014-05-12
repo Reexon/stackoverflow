@@ -221,5 +221,31 @@
     NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
     NSLog(@"%@",[NSString stringWithUTF8String:[returnData bytes]]);
 }
+
+/**
+ @abstract serve per de-authorizzare l'applicazione
+ 
+ @param access_token
+        token dell'user da cui si vuole rimuovere l'autorizzazione dell'applicazione (logout)
+ 
+ @see https://api.stackexchange.com/docs/application-de-authenticate
+ */
+-(void)deauthenticate:(NSString *)access_token{
+    endpoint = [NSMutableString stringWithFormat:@"%@/%@/",API_STACKEXCHANGE,API_VERSION];
+    [endpoint appendFormat:@"apps/%@/de-authenticate",access_token];
+    
+    
+    //l'access_token va prelevato in modo dinamico, non inserito così
+    NSString *myRequestString = [NSString stringWithFormat:@"&access_token=iShOSvtObis(N8sl7uPcLQ))&key=%@",APP_KEY];
+    NSData *myRequestData = [NSData dataWithBytes: [myRequestString UTF8String] length: [myRequestString length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: [NSURL URLWithString: endpoint]];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:myRequestData];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
+    NSLog(@"%@",[NSString stringWithUTF8String:[returnData bytes]]);
+}
 @end
 

@@ -32,4 +32,6 @@
 - (void) upVoteAnswer: (int)answerID;
 
 - (void) downVoteAnswer: (int)answerID;
+
+- (void) deauthenticate: (NSString *)access_token;
 @end

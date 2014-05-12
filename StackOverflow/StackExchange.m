@@ -168,4 +168,17 @@
     SO_Request *request = [SO_Request new];
     [request downVoteAnswer:answerID];
 }
+
+/**
+ @abstract serve per de-authorizzare l'applicazione
+ 
+ @param access_token
+ token dell'user da cui si vuole rimuovere l'autorizzazione dell'applicazione (logout)
+ 
+ @see https://api.stackexchange.com/docs/application-de-authenticate
+ */
+-(void)deauthenticate:(NSString *)access_token{
+    SO_Request *request = [SO_Request new];
+    [request deauthenticate:access_token];
+}
 @end

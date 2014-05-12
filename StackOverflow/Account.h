@@ -13,4 +13,5 @@
 @property (nonatomic,weak) NSString *access_token;
 
 - (id)initWithAccessToken:(NSString *)access_token;
+
 @end
