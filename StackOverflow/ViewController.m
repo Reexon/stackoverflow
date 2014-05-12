@@ -35,10 +35,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+ * usato per testare alcuni metodi
+ */
 - (IBAction)sendRequest:(id)sender {
     StackExchange *SE = [StackExchange new];
-    [SE loadQuestionBySearchString:@"CSS"];
-    [SE showAllQuestions];
+    
+    //[SE loadQuestionBySearchString:@"CSS"];
+    //[SE showAllQuestions];
 }
 
 - (void)updateAddress:(NSURLRequest*)request
