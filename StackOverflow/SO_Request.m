@@ -12,10 +12,10 @@
 
 @implementation SO_Request
 
-@synthesize endpoint,page,page_size,fromDate,toDate,order,sort,site;
+@synthesize endpoint;
 
-/*
- * il suo scopo principale è quello di generarmi il link dell'endpoint da richiamare
+/**
+    @abstract il suo scopo principale è quello di generarmi il link dell'API corretto da richiamare (endpoint)
  */
 - (id)initWithType:(int)type parameters:(NSDictionary *)dict{
     if(self = [self init]){
@@ -37,6 +37,9 @@
                 break;
         }
         
+        /*
+         * scansiono il dizionario passato come parametro, per aggiungere i parametri GET all'endpoint
+         */
         for(NSString *key in [dict allKeys]){
             
             if([key isEqualToString: @"site"])
@@ -52,6 +55,20 @@
     
 }
 
+/**
+ @abstract Costruttore che uso quando voglio avere le risposte di una specifica domanda, o di un gruppo di domande di cui conosco l'ID
+ 
+ @param type
+        indica il tipo di richiesta che si sta facendo, per ogni tipo di richiesta esisterà un define nel file Constants.h
+ 
+ @param ids
+        un array che contiene gli id delle domande di cui si vogliono prelevare le risposte
+ 
+ @param dict
+        dizionario che conterra i parametri aggiungivi (filtri)
+ 
+ @see ANSWER_TO_QUESTION https://api.stackexchange.com/docs/answers-by-ids
+ */
 -(id)initWithParameters:(int)type questionID:(NSArray *)ids parameters:(NSDictionary *)dict{
     if(self =[self init]){
         
@@ -78,13 +95,13 @@
     return self;
 }
 
+
 - (NSArray *)startRequest{
     return [self sendRequest:[NSURL URLWithString:endpoint]];
 }
 
-/*
- * genero e invio la richiesta
- * restituisco un array di dizionari
+/**
+    @abstract metodo che viene richiamato ogni volta che viene inviata una richiesta
  */
 - (NSArray *)sendRequest:(NSURL *)url{
     // Creo una richiesta dall'url

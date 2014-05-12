@@ -16,8 +16,8 @@
 
 @synthesize questionList;
 
-/*
- * Carica domande dal sito Stackoverflow
+/**
+    @abstract Carica domande dal sito Stackoverflow
  */
 -(void)loadAllQuestions{
     NSDictionary *param = [[NSDictionary alloc]initWithObjectsAndKeys:@"asc",@"order",
@@ -37,8 +37,8 @@
     
 }
 
-/*
- *  Carico le risposte di tutte le domande caricate
+/**
+    @abstract Carico le risposte di tutte le domande caricate
  */
 -(void)loadAllAnswers{
     
@@ -48,8 +48,8 @@
 
 }
 
-/*
- *  Visualizzo tutte le domande (Per Debug)
+/**
+    @abstract Visualizzo tutte le domande (Per Debug)
  */
 -(void)showAllQuestions{
     
@@ -64,8 +64,8 @@
     
 }
 
-/*
- *  Carico una lista di domande che non hanno ancora ricevuto risposta
+/**
+    @abstract Carico 20 delle ultime domande con + votazioni
  */
 -(void)loadUnansweredQuestion{
     
@@ -77,7 +77,10 @@
     
     SO_Request *request = [[SO_Request alloc]initWithType:UNANSWERED_QUESTIONS parameters:param];
     
+    //array di dizionari ritornato dalla richiesta all'API
     NSArray *arrayDict = [request startRequest];
+    
+    //array finale di oggetti Question
     questionList = [NSMutableArray new];
     
     for(NSDictionary *dict in arrayDict){
@@ -87,10 +90,12 @@
 }
 
 /**
-    Data una stringa, cerca le domande che contengono la stringa nel titolo
+    @abstract Data una stringa, cerca le domande che contengono la stringa nel titolo
  
     @param NSString search
             Stringa da ricercare
+ 
+    @see https://api.stackexchange.com/docs/search
 */
 -(void)loadQuestionBySearchString:(NSString *)search{
     NSDictionary *param = [[NSDictionary alloc]initWithObjectsAndKeys:@"asc",@"order",
@@ -101,7 +106,10 @@
                            nil];
     SO_Request *request = [[SO_Request alloc]initWithType:SEARCH_QUESTIONS parameters:param ];
     
+    //array di dizionari ritornato dalla richiesta all'API
     NSArray *arrayDict = [request startRequest];
+    
+    //array finale di oggetti Question
     questionList = [NSMutableArray new];
     
     for(NSDictionary *dict in arrayDict){
@@ -109,5 +117,55 @@
         [questionList addObject:quest];
     }
 }
+/**
+    @abstract Dato l'id della domanda, la AGGIUNGE tra i preferiti
+    
+    @param questionID NSString
+                l'id della domanda da inserire tra i preferiti
+ 
+    @see https://api.stackexchange.com/docs/favorite-question
 
+ */
+-(void)addQuestionToFavorite:(NSString *)questionID{
+    SO_Request *request = [SO_Request new];
+    [request addQuestionToFavorite:questionID];
+}
+/**
+    @abstract Dato l'id della domanda, la RIMUOVE tra i preferiti
+ 
+    @param questionID NSString
+            l'id della domanda da rimuovere dai preferiti
+ 
+    @see https://api.stackexchange.com/docs/undo-favorite-question
+ */
+-(void)removeQuestionFromFavorite:(NSString *)questionID{
+    SO_Request *request = [SO_Request new];
+    [request removeQuestionFromFavorite:questionID];
+}
+
+/**
+    @abstract invia voto positivo per la risposta
+ 
+    @param answerID
+            l'id della risposta da votare
+ 
+    @see https://api.stackexchange.com/docs/upvote-answer
+ */
+-(void)upVoteAnswer:(int)answerID{
+    SO_Request *request = [SO_Request new];
+    [request upVoteAnswer:answerID];
+}
+
+/**
+    @abstract invia voto negativo per la risposta
+ 
+    @param answerID
+        l'id della risposta da votare
+ 
+    @see https://api.stackexchange.com/docs/undo-upvote-answer
+ */
+-(void)downVoteAnswer:(int)answerID{
+    SO_Request *request = [SO_Request new];
+    [request downVoteAnswer:answerID];
+}
 @end

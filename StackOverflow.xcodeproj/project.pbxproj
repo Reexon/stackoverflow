@@ -10,6 +10,7 @@
 		AB02C5031916C1550097E928 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02C5021916C1550097E928 /* Answer.m */; };
 		AB18395B19161C790017BD71 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = AB18395A19161C790017BD71 /* Question.m */; };
 		AB1839601916244C0017BD71 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = AB18395F1916244C0017BD71 /* Author.m */; };
+		AB70E439192129730045D5CD /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AB70E438192129730045D5CD /* Account.m */; };
 		AB83762219164D3C00545642 /* StackExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = AB83762119164D3C00545642 /* StackExchange.m */; };
 		AB97C8AB191259D500F93839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB97C8AA191259D500F93839 /* Foundation.framework */; };
 		AB97C8AD191259D500F93839 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB97C8AC191259D500F93839 /* CoreGraphics.framework */; };
@@ -47,6 +48,8 @@
 		AB18395E1916244C0017BD71 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		AB18395F1916244C0017BD71 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
 		AB18396119162DF30017BD71 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AB70E437192129730045D5CD /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		AB70E438192129730045D5CD /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		AB83762019164D3C00545642 /* StackExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackExchange.h; sourceTree = "<group>"; };
 		AB83762119164D3C00545642 /* StackExchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackExchange.m; sourceTree = "<group>"; };
 		AB97C8A7191259D500F93839 /* StackOverflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +117,7 @@
 				AB18395C191624390017BD71 /* Question */,
 				AB83762019164D3C00545642 /* StackExchange.h */,
 				AB83762119164D3C00545642 /* StackExchange.m */,
+				AB70E43A192129770045D5CD /* Account */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -134,6 +138,15 @@
 				AB18395F1916244C0017BD71 /* Author.m */,
 			);
 			name = Author;
+			sourceTree = "<group>";
+		};
+		AB70E43A192129770045D5CD /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				AB70E437192129730045D5CD /* Account.h */,
+				AB70E438192129730045D5CD /* Account.m */,
+			);
+			name = Account;
 			sourceTree = "<group>";
 		};
 		AB97C89E191259D500F93839 = {
@@ -312,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB70E439192129730045D5CD /* Account.m in Sources */,
 				AB97C8C4191259D500F93839 /* ViewController.m in Sources */,
 				AB97C8E419125AAB00F93839 /* SO_Request.m in Sources */,
 				AB1839601916244C0017BD71 /* Author.m in Sources */,
