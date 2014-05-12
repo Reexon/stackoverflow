@@ -122,5 +122,104 @@
     return array;
 }
 
+/**
+ @abstract Dato l'id della domanda, la AGGIUNGE tra i preferiti
+ 
+ @param questionID NSString
+ l'id della domanda da inserire tra i preferiti
+ 
+ @see https://api.stackexchange.com/docs/favorite-question
+ 
+ */
+-(void)addQuestionToFavorite:(NSString *)questionID{
+    endpoint = [NSMutableString stringWithFormat:@"%@/%@/",API_STACKEXCHANGE,API_VERSION];
+    [endpoint appendFormat:@"questions/%@/favorite",questionID];
+    
+    //l'access_token va prelevato in modo dinamico, non inserito così
+    NSString *myRequestString = [NSString stringWithFormat:@"&access_token=iShOSvtObis(N8sl7uPcLQ))&key=%@&site=stackoverflow",APP_KEY];
+    NSData *myRequestData = [NSData dataWithBytes: [myRequestString UTF8String] length: [myRequestString length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: [NSURL URLWithString: endpoint]];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:myRequestData];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
+    NSLog(@"%@",[NSString stringWithUTF8String:[returnData bytes]]);
+    
+}
+/**
+ @abstract Dato l'id della domanda, la RIMUOVE tra i preferiti
+ 
+ @param questionID NSString
+ l'id della domanda da rimuovere dai preferiti
+ 
+ @see https://api.stackexchange.com/docs/undo-favorite-question
+ */
+-(void)removeQuestionFromFavorite:(NSString *)questionID{
+    endpoint = [NSMutableString stringWithFormat:@"%@/%@/",API_STACKEXCHANGE,API_VERSION];
+    [endpoint appendFormat:@"questions/%@/favorite/undo",questionID];
+    
+    //l'access_token va prelevato in modo dinamico, non inserito così
+    NSString *myRequestString = [NSString stringWithFormat:@"&access_token=iShOSvtObis(N8sl7uPcLQ))&key=%@&site=stackoverflow",APP_KEY];
+    NSData *myRequestData = [NSData dataWithBytes: [myRequestString UTF8String] length: [myRequestString length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: [NSURL URLWithString: endpoint]];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:myRequestData];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
+    NSLog(@"%@",[NSString stringWithUTF8String:[returnData bytes]]);
+    
+}
+/**
+ @abstract invia voto positivo per la risposta
+ 
+ @param answerID
+ l'id della risposta da votare
+ 
+ @see https://api.stackexchange.com/docs/upvote-answer
+ */
+-(void)upVoteAnswer:(int)answerID{
+    endpoint = [NSMutableString stringWithFormat:@"%@/%@/",API_STACKEXCHANGE,API_VERSION];
+    [endpoint appendFormat:@"answers/%d/upvote",answerID];
+    
+    //l'access_token va prelevato in modo dinamico, non inserito così
+    NSString *myRequestString = [NSString stringWithFormat:@"&access_token=iShOSvtObis(N8sl7uPcLQ))&key=%@&site=stackoverflow",APP_KEY];
+    NSData *myRequestData = [NSData dataWithBytes: [myRequestString UTF8String] length: [myRequestString length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: [NSURL URLWithString: endpoint]];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:myRequestData];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
+    NSLog(@"%@",[NSString stringWithUTF8String:[returnData bytes]]);
+}
+/**
+ @abstract invia voto negativo per la risposta
+ 
+ @param answerID
+ l'id della risposta da votare
+ 
+ @see https://api.stackexchange.com/docs/undo-upvote-answer
+ */
+-(void)downVoteAnswer:(int)answerID{
+    endpoint = [NSMutableString stringWithFormat:@"%@/%@/",API_STACKEXCHANGE,API_VERSION];
+    [endpoint appendFormat:@"answers/%d/upvote/undo",answerID];
+    
+    //l'access_token va prelevato in modo dinamico, non inserito così
+    NSString *myRequestString = [NSString stringWithFormat:@"&access_token=iShOSvtObis(N8sl7uPcLQ))&key=%@&site=stackoverflow",APP_KEY];
+    NSData *myRequestData = [NSData dataWithBytes: [myRequestString UTF8String] length: [myRequestString length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: [NSURL URLWithString: endpoint]];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:myRequestData];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest: request returningResponse: nil error: nil];
+    NSLog(@"%@",[NSString stringWithUTF8String:[returnData bytes]]);
+}
 @end
 
