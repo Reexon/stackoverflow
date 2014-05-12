@@ -22,8 +22,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-     [webView setDelegate:self];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://stackexchange.com/oauth/dialog?client_id=2975&scope=write_access,no_expiry&redirect_uri=https://stackexchange.com/oauth/login_success"]];
+    [webView setDelegate:self];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://stackexchange.com/oauth/dialog?client_id=2975&scope=write_access,no_expiry,private_info&redirect_uri=https://stackexchange.com/oauth/login_success"]];
    [webView loadRequest:request];
    
 
@@ -50,6 +50,15 @@
     NSURL* url = [request mainDocumentURL];
     NSString* absoluteString = [url absoluteString];
     self.addressField.text = absoluteString;
+    
+    if([absoluteString rangeOfString:@"access_token"].length > 0){
+        NSString *access_token = [absoluteString componentsSeparatedByString:@"access_token="][1];
+        
+        /*  access_token contiene il nostro token che ci interessa.
+         *  creo l'oggetto Account, e memorizzo il token
+         *  passo alla schermata successiva.
+         */
+    }
 }
 
 #pragma mark - Optional UIWebViewDelegate delegate methods

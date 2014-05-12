@@ -9,6 +9,7 @@
 #ifndef StackOverflow_Constants_h
 #define StackOverflow_Constants_h
 
+#define APP_KEY @")ts*k)JE)nFoGRxQmyZQsQ(("
 #define API_VERSION @"2.2"
 #define API_STACKEXCHANGE @"https://api.stackexchange.com"
 #define QUESTIONS @"questions"
